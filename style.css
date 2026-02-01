@@ -33,6 +33,11 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px); /* 向上浮動 5 像素 */
+    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.2);
+}
+
 /* Bento 佈局邏輯 */
 .card-large { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, var(--accent-orange), var(--accent-red)); color: white; }
 .card-medium { grid-column: span 1; grid-row: span 2; }
@@ -79,7 +84,3 @@ h1 { margin: 0; font-size: 2rem; }
 
 
 
-.card:hover {
-    transform: translateY(-5px); /* 向上浮動 5 像素 */
-    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.2);
-}
