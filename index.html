@@ -42,6 +42,17 @@
                         <h3>社交連結</h3>
                         ${data.links.map(l => `<p><a href="${l.url}" style="color: var(--accent-red);">${l.title}</a></p>`).join('')}
                     </div>
+                    `
+<div class="card card-medium">
+    <h3>${data.services.title}</h3>
+    <div class="sub-items-container">
+        ${data.services.items.map(item => `
+            <div class="sub-item">${item}</div>
+        `).join('')}
+    </div>
+</div>
+`
+
                 `;
             } catch (e) {
                 console.error("讀取 YML 失敗:", e);
