@@ -12,53 +12,57 @@
         </div>
 
     <script>
-        async function loadContent() {
-            try {
-                // 讀取 yml 檔案
-                const response = await fetch('data.yml');
-                const text = await response.text();
-                const data = jsyaml.load(text);
+       async function loadContent() {
+    try {
+        // 1. 讀取 yml 檔案
+        const response = await fetch('data.yml');
+        const text = await response.text();
+        const data = jsyaml.load(text);
 
-                // 設定網頁標題變數
-                document.title = data.site_title;
-                document.getElementById('page-title').innerText = data.site_title;
+        // 2. 設定網頁標題與內容
+        document.title = data.site_title;
+        const pageTitleEl = document.getElementById('page-title');
+        if (pageTitleEl) pageTitleEl.innerText = data.site_title;
 
-                // 渲染 Bento 區塊
-                const container = document.getElementById('bento-grid');
-                container.innerHTML = `
-                    <div class="card card-large">
-                        <h1>${data.profile.name}</h1>
-                        <p>${data.profile.intro}</p>
-                    </div>
-                    <div class="card card-small" style="background: #ffebd3;">
-                        <h3>技能</h3>
-                        ${data.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
-                    </div>
-                    <div class="card card-medium">
-                        <h3>聯繫我</h3>
-                        <p>${data.contact}</p>
-                    </div>
-                    <div class="card card-small">
-                        <h3>社交連結</h3>
-                        ${data.links.map(l => `<p><a href="${l.url}" style="color: var(--accent-red);">${l.title}</a></p>`).join('')}
-                    </div>
-                    `
-<div class="card card-medium">
-    <h3>${data.services.title}</h3>
-    <div class="sub-items-container">
-        ${data.services.items.map(item => `
-            <div class="sub-item">${item}</div>
-        `).join('')}
-    </div>
-</div>
-`
+        // 3. 渲染 Bento 區塊 (注意：這裡只用一對反引號包住全部 HTML)
+        const container = document.getElementById('bento-grid');
+        container.innerHTML = `
+            <div class="card card-large">
+                <h1>${data.profile.name}</h1>
+                <p>${data.profile.intro}</p>
+            </div>
 
-                `;
-            } catch (e) {
-                console.error("讀取 YML 失敗:", e);
-            }
-        }
-        loadContent();
+            <div class="card card-small" style="background: #ffebd3;">
+                <h3>技能</h3>
+                ${data.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+            </div>
+
+            <div class="card card-medium">
+                <h3>聯繫我</h3>
+                <p>${data.contact}</p>
+            </div>
+
+            <div class="card card-small">
+                <h3>社交連結</h3>
+                ${data.links.map(l => `<p><a href="${l.url}" style="color: var(--accent-red);">${l.title}</a></p>`).join('')}
+            </div>
+
+            <div class="card card-medium">
+                <h3>${data.services.title}</h3>
+                <div class="sub-items-container">
+                    ${data.services.items.map(item => `
+                        <div class="sub-item">${item}</div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    } catch (e) {
+        console.error("讀取 YML 失敗:", e);
+        // 在網頁上顯示錯誤訊息方便偵錯
+        document.getElementById('bento-grid').innerHTML = `<p style="color:red;">載入失敗，請檢查 data.yml 格式是否正確。</p>`;
+    }
+}
+loadContent();
     </script>
 </body>
 </html>
