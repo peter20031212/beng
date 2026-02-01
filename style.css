@@ -84,3 +84,20 @@ h1 { margin: 0; font-size: 2rem; }
     box-shadow: 0 8px 25px rgba(255, 140, 66, 0.2);
 }
 
+/* 使用更具體的路徑，確保權限最高 */
+#bento-grid .card {
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.1);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    transition: all 0.3s ease-out !important; /* 強制啟動過渡動畫 */
+    cursor: pointer; /* 讓滑鼠移上去變手指圖示，確認有抓到目標 */
+}
+
+#bento-grid .card:hover {
+    transform: translateY(-8px) !important; /* 浮動效果加大一點點，方便肉眼觀察 */
+    box-shadow: 0 12px 30px rgba(255, 140, 66, 0.3) !important;
+    border: 1px solid var(--accent-orange);
+    z-index: 10; /* 確保浮起來的卡片不會被擋住 */
+}
