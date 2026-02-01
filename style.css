@@ -62,3 +62,16 @@ h1 { margin: 0; font-size: 2rem; }
     font-size: 0.9rem;
     border-left: 4px solid var(--accent-orange);
 }
+
+/* 加入媒體查詢（Media Query）確保手機版也能完美顯示 */
+@media (max-width: 600px) {
+    .bento-container {
+        grid-template-columns: 1fr; /* 手機上一律單欄 */
+        grid-auto-rows: auto;       /* 高度根據內容自動調整 */
+    }
+    
+    .card-large, .card-medium {
+        grid-column: span 1;        /* 取消橫跨 */
+        grid-row: span 1;
+    }
+}
