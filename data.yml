@@ -5,6 +5,13 @@ site_title: "個人空間"
 profile:
   name: "程式夥伴"
   intro: "熱愛寫程式與分享知識的開發者。"
+# 新增的區塊數據
+services:
+  title: "我的服務"
+  items:
+    - "網頁設計"
+    - "程式開發"
+    - "技術諮詢"
 links:
   - title: "我的 GitHub"
     url: "https://github.com"
