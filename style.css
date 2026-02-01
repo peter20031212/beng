@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #fff5e6;    /* 極淺橘色背景 */
+    --bg-color: #fffaf5;    /* 更淺的奶油白 */
     --card-color: #ffffff;
-    --accent-orange: #ff8c42; /* 熱情橘 */
-    --accent-red: #ff3c38;    /* 暖紅 */
-    --text-color: #4a4a4a;
+    --accent-orange: #ffb380; /* 調淺橘色 */
+    --accent-red: #ff8a80;    /* 調淺紅色 */
+    --text-color: #5c5c5c;
 }
 
 body {
@@ -45,4 +45,20 @@ h1 { margin: 0; font-size: 2rem; }
     border-radius: 12px;
     margin: 4px;
     font-size: 0.8rem;
+}
+
+/* 針對三個子項目的容器樣式 */
+.sub-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sub-item {
+    background: #fff5e6;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border-left: 4px solid var(--accent-orange);
 }
