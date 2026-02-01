@@ -1,0 +1,14 @@
+# 網頁標題變數
+site_title: "個人空間"
+
+# 便當盒區塊內容
+profile:
+  name: "程式夥伴"
+  intro: "熱愛寫程式與分享知識的開發者。"
+links:
+  - title: "我的 GitHub"
+    url: "https://github.com"
+  - title: "技術筆記"
+    url: "#"
+skills: ["JavaScript", "Python", "CSS Grid", "Tailwind"]
+contact: "hello@example.com"
